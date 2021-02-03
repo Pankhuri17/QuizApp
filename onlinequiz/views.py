@@ -4,8 +4,13 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render from django.views.generic.base
+from django.views.generic.base import TemplateView
 
 # Create your views here.
+
+class LandingView(TemplateView):
+  template_name = "base/home.html"
 
 def home(request):
     courses = Course.objects.all()
